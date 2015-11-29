@@ -1,0 +1,93 @@
+
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class SortingGui implements ActionListener {
+	private JFrame frame;
+	private JPanel panel;
+	private JLabel label;
+	private JLabel output;
+	private JButton button;
+	private static final int ARRAY_SIZE = 10;
+	private static final int FIELD_SIZE = 3;
+	
+	private JTextField [] textField = new JTextField [ARRAY_SIZE];
+	
+	public SortingGui() {
+		frame = new JFrame("Integer List Sorter");
+		frame.setVisible(true);
+		frame.setSize(700, 100);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		panel = new JPanel();
+		panel.setBackground(Color.MAGENTA);
+		
+		label = new JLabel();
+		label.setText("Enter " + ARRAY_SIZE + " numbers:");
+		output = new JLabel();
+		output.setText("------------------------------------------");
+		
+		for (int i=0; i<textField.length; i++){
+			textField[i] = new JTextField(FIELD_SIZE);
+		}
+		
+		button = new JButton("Sort List");
+		button.addActionListener(this);
+		
+		panel.add(label); 
+		for (int i=0; i<textField.length; i++){
+			panel.add(textField[i]);
+		}
+		panel.add(button);
+		panel.add(output);
+		
+		frame.add(panel);
+	}
+	
+	public void actionPerformed(ActionEvent e){
+		String displayString = "Sorted List: ";
+		String [] sortedListString = new String[ARRAY_SIZE];
+		
+		int [] unsortedList = new int [ARRAY_SIZE];
+		for(int i=0; i<textField.length; i++)
+			unsortedList[i] = Integer.parseInt(textField[i].getText());
+		
+		int [] sortedList = sortedList(unsortedList);
+		
+		for(int i=0; i<sortedList.length; i++){
+			sortedListString[i] = String.valueOf(sortedList[i]);
+			displayString += (sortedList[i]);
+			if (i< (sortedList.length-1)){
+				displayString += (", ");
+			}
+		}
+		
+		System.out.println(displayString);
+		output.setText(displayString);
+	}
+	
+	public static int [] sortedList(int [] numberList){
+		for (int i = 0; i<numberList.length; i++)
+			for (int j=0; j<numberList.length; j++) {
+				if(numberList[i] < numberList[j]) {
+					swap(numberList,i,j);
+				}
+			}
+		return numberList;
+	}
+				
+	private static void swap(int[] numberList, int i, int j){
+		int temp = numberList[i];
+		numberList[i] = numberList[j];
+		
+		numberList[j] = temp;
+	}
+}
