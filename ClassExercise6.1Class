@@ -1,0 +1,85 @@
+
+public class Calculator {
+
+	public static int Sum(int ifirst, int isecond){
+		return ifirst + isecond;
+	}
+	
+	public static double Sum(double dfirst, double dsecond){
+		return dfirst + dsecond;
+	}
+	
+	public static int Sum(int [] inum){
+		int sum = 0;
+		for (int i=0; i<inum.length; i++){
+			sum += inum[i];
+		}
+		return sum;
+	}
+	
+	public static double Sum(double [] dnum){
+		double sum = 0.0;
+		for (int i=0; i<dnum.length; i++){
+			sum += dnum[i];
+		}
+		return sum;
+	}
+	
+	public static int Average(int ifirst, int isecond){
+		return (ifirst + isecond) /2;
+	}
+	
+	public static double Average(double dfirst, double dsecond){
+		return (dfirst + dsecond) /2.0;
+	}
+	
+	public static int Average(int[] inum){
+		int sum = 0;
+		for(int i=0; i<inum.length; i++){
+			sum += inum[i];
+		}
+		return (sum/inum.length);
+	}
+	
+	public static double Average(double[] dnum){
+		double sum = 0.0;
+		for(int i=0; i<dnum.length; i++){
+			sum += dnum[i];
+		}
+		return (sum/dnum.length);
+	}
+
+	public static int Product(int ifirst, int isecond){
+		return ifirst * isecond;
+	}
+	
+	public static double Product(double dfirst, double dsecond){
+		return dfirst * dsecond;
+	}	
+	
+	public static int Product(int [] inum){
+		int product = 0;
+		for (int i=0; i<inum.length; i++){
+			product *= inum[i];
+		}
+		return product;
+	}
+	
+	public static double Product(double [] dnum){
+		double product = 0.0;
+		for (int i=0; i<dnum.length; i++){
+			product *= dnum[i];
+		}
+		return product;
+	}
+	
+	public static int Factorial(int ifirst){
+		int factorial = 1;
+		for (int i=1; i<= ifirst; i++){
+			factorial *= i;
+		}
+		return factorial;
+	}
+
+	
+}
