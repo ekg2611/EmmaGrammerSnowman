@@ -1,0 +1,8 @@
+public class SwingGridLayoutDriver {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		SwingGridLayout gui = new SwingGridLayout();
+	}
+
+}
