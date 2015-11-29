@@ -1,0 +1,55 @@
+
+public class CalculatorDriver {
+
+	public static void main(String[] args) {
+		int [] inum = new int [5];
+		double [] dnum = new double [5];
+		
+		int ifirst = 5;
+		int isecond = 22;
+		
+		double dfirst = 10.0;
+		double dsecond = 15.8;
+				
+		
+		inum [0] = 10;
+		inum [1] = 6;
+		inum [2] = 3;
+		inum [3] = 15;
+		inum [4] = 5;
+		
+		dnum [0] = 15.6;
+		dnum [1] = 15.6;
+		dnum [2] = 15.6;
+		dnum [3] = 15.6;
+		dnum [4] = 15.6;
+	
+	System.out.println("**********Sum Method**********");	
+	System.out.println("The sum of two integers is " + Calculator.Sum(ifirst, isecond));	
+	System.out.println("The sum of two doubles is " + Calculator.Sum(dfirst, dsecond));
+	System.out.println("The sum of the int array is " + Calculator.Sum(inum));
+	System.out.println("The sum of the double array is " + Calculator.Sum(dnum));
+	
+	System.out.println("");
+	System.out.println("**********Average Method**********");
+	System.out.println("The average of two integers is " + Calculator.Average(ifirst, isecond));	
+	System.out.println("The average of two doubles is " + Calculator.Average(dfirst, dsecond));
+	System.out.println("The average of the int array is " + Calculator.Average(inum));
+	System.out.println("The average of the double array is " + Calculator.Average(dnum));
+	
+	System.out.println("");
+	System.out.println("**********Product Method**********");
+	System.out.println("The product of two integers is " + Calculator.Product(ifirst, isecond));	
+	System.out.println("The product of two doubles is " + Calculator.Product(dfirst, dsecond));
+	System.out.println("The product of the int array is " + Calculator.Product(inum));
+	System.out.println("The product of the double array is " + Calculator.Product(dnum));
+	
+	System.out.println("");
+	System.out.println("**********Factorial Method**********");
+	System.out.println("The factorial of " + ifirst + " is " + Calculator.Factorial(ifirst));	
+
+
+
+	}
+
+}
