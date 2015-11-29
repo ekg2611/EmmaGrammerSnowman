@@ -1,0 +1,24 @@
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+public class SwingBorderLayout extends JFrame {
+	private JTextField [] textField = new JTextField [4]; 
+	
+	public SwingBorderLayout(){
+		
+		textField[0] = new JTextField();
+		textField[1] = new JTextField();
+		textField[2] = new JTextField(15);
+		textField[3] = new JTextField(15);
+		setLayout(new BorderLayout());
+		
+		add(textField[0], BorderLayout.PAGE_START);
+		add(textField[1], BorderLayout.PAGE_END);
+		add(textField[2], BorderLayout.LINE_START);
+		add(textField[3], BorderLayout.LINE_END);
+		setVisible(true);
+		setSize(new Dimension(500,500));
+	}
+}
