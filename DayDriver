@@ -1,0 +1,53 @@
+
+public class DayDriver {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Day day = new Day("Saturday");
+		System.out.println("Current Day: " + day);
+		System.out.println("Next Day: " + day.nextDay());
+		System.out.println("Previous Day: " + day.previousDay());
+		System.out.println("Next 28 Days: " + day.calculateDay(28));
+		System.out.println("Previous 28 Days: " + day.calculateDay(-28));
+		
+		System.out.println("Next 0 Day: " + day.calculateDay(0));
+		System.out.println("Next 365 Day: " + day.calculateDay(365));
+		
+		
+		day.setDay("Sunday");
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.println("Current Day: " + day);
+		System.out.println("Next Day: " + day.nextDay());
+		System.out.println("Previous Day: " + day.previousDay());
+		System.out.println("Next 28 Days: " + day.calculateDay(28));
+		System.out.println("Previous 28 Days: " + day.calculateDay(-28));
+		
+		System.out.println("Next 0 Day: " + day.calculateDay(0));
+		System.out.println("Next 365 Day: " + day.calculateDay(365));
+		
+		day.setDay("Tuesday");
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.println("Current Day: " + day);
+//		System.out.println("Next Day: " + day.nextDay());
+//		System.out.println("Previous Day: " + day.previousDay());
+		System.out.println("Next 28 Days: " + day.calculateDay(28));
+		System.out.println("Next 1 Day: " + day.calculateDay(1));
+		System.out.println("Next 2 Days: " + day.calculateDay(2));
+		System.out.println("Next 3 Days: " + day.calculateDay(3));
+		System.out.println("Next 4 Days: " + day.calculateDay(4));
+		System.out.println("Next 5 Days: " + day.calculateDay(5));
+		System.out.println("Next 6 Days: " + day.calculateDay(6));
+		System.out.println("Next 7 Days: " + day.calculateDay(7));
+		System.out.println("Previous 1 Day: " + day.calculateDay(-1));
+		System.out.println("Previous 2 Days: " + day.calculateDay(-2));
+		System.out.println("Previous 3 Days: " + day.calculateDay(-3));
+		System.out.println("Previous 4 Days: " + day.calculateDay(-4));
+		System.out.println("Previous 5 Days: " + day.calculateDay(-5));
+		System.out.println("Previous 6 Days: " + day.calculateDay(-6));
+		System.out.println("Previous 7 Days: " + day.calculateDay(-7));
+		
+	}
+
+}
