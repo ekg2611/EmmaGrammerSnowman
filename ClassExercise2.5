@@ -1,0 +1,57 @@
+/**
+ * Emma Grammer
+ * ekg2611@email.vccs.edu
+ * 12/2/2015
+ */
+
+
+import javax.swing.JOptionPane;
+
+public class CA2_5Money {
+	public static final int QUARTERS = 25;
+	public static final int DIMES = 10;
+	public static final int NICKELS = 5;
+	public static final int PENNIES = 1;
+
+	public static void main(String[] args) {
+		
+		
+		int amount, dollarAmount;
+		String strTenDollarBills;
+		String strFiveDollarBills;
+		String strOneDollarBills;
+		int tenDollarBills = 0;
+		int fiveDollarBills = 0;
+		int oneDollarBills = 0;
+		int numQuarters = 0;
+		int numDimes = 0;
+		int numNickels = 0;
+		int numPennies = 0;
+		
+		strTenDollarBills = JOptionPane.showInputDialog("Enter a number ten dollar bills. ");
+		tenDollarBills = Integer.parseInt(strTenDollarBills);
+		
+		strFiveDollarBills = JOptionPane.showInputDialog("Enter a number five dollar bills. ");
+		fiveDollarBills = Integer.parseInt(strFiveDollarBills);
+		
+		strOneDollarBills = JOptionPane.showInputDialog("Enter a number one dollar bills. ");
+		oneDollarBills = Integer.parseInt(strOneDollarBills);
+		
+		dollarAmount = (tenDollarBills * 10) + (fiveDollarBills * 5) + (oneDollarBills * 1);
+		amount = dollarAmount * 100;
+		
+		
+		numQuarters = amount/QUARTERS;
+		numDimes = amount/DIMES;
+		numNickels = amount/NICKELS;
+		numPennies = amount/PENNIES;
+		
+		
+		
+		JOptionPane.showMessageDialog(null,  dollarAmount + " Dollars is equal to \n" + numQuarters + " quarters or \n" + numDimes + " dimes or \n" + numNickels + " nickels or \n" + numPennies + " pennies.");
+		System.exit(0);
+		
+		
+	}
+
+}
