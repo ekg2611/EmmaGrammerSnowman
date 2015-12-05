@@ -1,0 +1,71 @@
+/**
+ * 
+ * @author Edelwiess (Emma Grammer)
+ * date 11/4/2015
+ * email ekg2611@email.vccs.edu
+ *
+ */
+
+public class Car {
+	private String color;
+	private int horsePower;
+	private double engineSize;
+	private static int count;
+	
+
+	public Car(){
+		color = "red";
+		horsePower = 250;
+		engineSize = 5.0;
+		this.count++;
+	}
+	
+	
+	 public Car(String color, int horsepower, double engineSize){
+		 this.color = color;
+		 this.horsePower = horsepower;
+		 this.engineSize = engineSize;
+		 this.count++;
+	 }
+	 
+	 public Car(String color){
+		 this.color = color;
+		 this.count++;
+	 }
+	 
+	 public void setcolor(String color){
+			this.color = color;
+		}
+		public String getcolor(){
+			return color;
+		}
+		
+		public void sethorsePower(int horsePower){
+			this.horsePower = horsePower;
+		}
+		public int gethorsePower(){
+			return horsePower;
+		}
+		
+		public void setengineSize(double engineSize){
+			this.engineSize = engineSize;
+		}
+		public double getengineSize(){
+			return engineSize;
+		}
+		
+		public static int getCount() {
+			return count;
+		}
+		
+		public String toString() {
+			return "The color of the car is " + this.color + " with a horse power of " + this.horsePower + " and an engine size of " + this.engineSize + " liters.";
+		}
+		
+		public boolean equals(Car otherObject){
+			return(this.color.equals(otherObject.color)) && 
+					(this.horsePower == otherObject.horsePower) &&
+					(this.engineSize == otherObject.engineSize);
+		}
+		
+}
