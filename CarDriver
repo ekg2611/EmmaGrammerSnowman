@@ -1,0 +1,105 @@
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
+/**
+ * 
+ * @author Edelwiess (Emma Grammer)
+ * date 11/4/2015
+ * email ekg2611@email.vccs.edu
+ *
+ */
+public class CarDriver {
+
+	public static void main(String[] args) {
+		
+		String inputColor;
+		String inputHorsepower;
+		int inputHP;
+		String inputEnginesize;
+		double inputES;
+		
+		
+// Car 1		
+		Car car1 = new Car();
+		inputColor = JOptionPane.showInputDialog("Enter the color of the car:");
+		inputHorsepower = JOptionPane.showInputDialog("Enter the horse power of the car:");
+		inputHP = Integer.parseInt(inputHorsepower);
+		inputEnginesize = JOptionPane.showInputDialog("Enter the engine size of the car:");
+		inputES = Double.parseDouble(inputEnginesize);
+		car1.setcolor(inputColor);
+		car1.sethorsePower(inputHP);
+		car1.setengineSize(inputES);
+		JOptionPane.showMessageDialog(null, "[Car1] " + car1.toString());
+		JOptionPane.showMessageDialog(null, "Number of cars " + Car.getCount());
+	
+		
+// Car 2	
+		Car car2 = new Car();
+		inputColor = JOptionPane.showInputDialog("Enter the color of the car:");
+		inputHorsepower = JOptionPane.showInputDialog("Enter the horse power of the car:");
+		inputHP = Integer.parseInt(inputHorsepower);
+		inputEnginesize = JOptionPane.showInputDialog("Enter the engine size of the car:");
+		inputES = Double.parseDouble(inputEnginesize);
+		car2.setcolor(inputColor);
+		car2.sethorsePower(inputHP);
+		car2.setengineSize(inputES);
+		JOptionPane.showMessageDialog(null, "[Car2] " + car2.toString());
+		JOptionPane.showMessageDialog(null, "Number of cars " + Car.getCount());
+		
+
+		// Car 3
+		Car car3 = new Car();
+		inputColor = JOptionPane.showInputDialog("Enter the color of the car:");
+		inputHorsepower = JOptionPane.showInputDialog("Enter the horse power of the car:");
+		inputHP = Integer.parseInt(inputHorsepower);
+		inputEnginesize = JOptionPane.showInputDialog("Enter the engine size of the car:");
+		inputES = Double.parseDouble(inputEnginesize);
+		car3.setcolor(inputColor);
+		car3.sethorsePower(inputHP);
+		car3.setengineSize(inputES);
+		JOptionPane.showMessageDialog(null, "[Car3] " + car3.toString());
+		JOptionPane.showMessageDialog(null, "Number of cars " + Car.getCount());		
+			
+		// Car 4
+		Car car4 = new Car();
+		inputColor = JOptionPane.showInputDialog("Enter the color of the car:");
+		inputHorsepower = JOptionPane.showInputDialog("Enter the horse power of the car:");
+		inputHP = Integer.parseInt(inputHorsepower);
+		inputEnginesize = JOptionPane.showInputDialog("Enter the engine size of the car:");
+		inputES = Double.parseDouble(inputEnginesize);
+		car4.setcolor(inputColor);
+		car4.sethorsePower(inputHP);
+		car4.setengineSize(inputES);
+		JOptionPane.showMessageDialog(null, "[Car4] " + car4.toString());
+		JOptionPane.showMessageDialog(null, "Number of cars " + Car.getCount());
+		
+		// Is Car 3 Equal to Car 4
+		JOptionPane.showMessageDialog(null, "Car 3 is the same as Car 4 : " + car3.equals(car4));
+
+		// Is Car 1 Equal to Car 4
+		JOptionPane.showMessageDialog(null, "Car 1 is the same as Car 4 : " + car1.equals(car4));
+
+		// Car5 and Car6 - Data initialized with constructor.
+		Car car5 = new Car("Silver", 750, 8.0);
+		Car car6 = new Car("Silver", 750, 8.0);
+
+		
+		System.out.println("\n*******************************************************");
+		System.out.println("[Car1] " + car1.toString());
+		System.out.println("[Car2] " + car2.toString());
+		System.out.println("[Car3] " + car3.toString());
+		System.out.println("[Car4] " + car4.toString());
+		System.out.println("[Car5] " + car5.toString());
+		System.out.println("[Car6] " + car6.toString());
+		System.out.println("\n*******************************************************");
+		System.out.println("Number of cars " + Car.getCount());
+		System.out.println("\n*******************************************************");
+		System.out.println("Car 3 is the same as Car 4 : " + car3.equals(car4));
+		System.out.println("Car 1 is the same as Car 4 : " + car1.equals(car4));
+		System.out.println("Car 5 is the same as Car 6 : " + car5.equals(car6));	
+			
+		
+		
+	}
+}
