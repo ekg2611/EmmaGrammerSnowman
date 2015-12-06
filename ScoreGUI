@@ -1,0 +1,270 @@
+/**
+ * @author Emma Grammer
+ * email ekg2611@email.vccs.edu
+ * date 12/02/2015
+ */
+
+package StudentScoreCard;
+
+import java.util.Collections;
+import java.util.Scanner;
+import javafx.application.Application;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import StudentScoreCard.Configuration;
+
+public class ScoreGui extends Application{
+	
+
+	public static void main(String[] args) {
+		launch(args);
+	
+	}
+
+/**
+ * This sets the primary stage for the GUI	
+ */
+	
+//    @Override
+    public void start(Stage primaryStage) {
+    	
+/**
+ * Build the Score GUI screen. (Title, Labels, Fields, Buttons)
+ */
+    
+        primaryStage.setTitle("Emma Grammer's CSC 200 Score GUI");
+        GridPane grid = new GridPane();
+        grid.setAlignment(Pos.CENTER);
+        grid.setHgap(10);
+        grid.setVgap(10);
+   
+
+        Text scenetitle = new Text("Test Score Calculator");
+        scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+        grid.add(scenetitle, 0, 0, 2, 1);
+        
+        Label firstNameLbl = new Label("First Name:");
+        grid.add(firstNameLbl, 0, 1);
+        
+        TextField firstNameTxtFld = new TextField();
+        grid.add(firstNameTxtFld, 1, 1);
+        
+        Label lastNameLbl = new Label("Last Name:");
+        grid.add(lastNameLbl, 0, 2);
+        
+        TextField lastNameTxtFld = new TextField();
+        grid.add(lastNameTxtFld, 1, 2);
+                
+        Label testScore1Lbl = new Label("Test score 1:");
+        grid.add(testScore1Lbl, 0, 3);
+
+        TextField testScore1TxtFld = new TextField();
+        grid.add(testScore1TxtFld, 1, 3);
+        
+        Label testScore2Lbl = new Label("Test score 2:");
+        grid.add(testScore2Lbl, 0, 4);
+
+        TextField testScore2TxtFld = new TextField();
+        grid.add(testScore2TxtFld, 1, 4);
+        
+        Label testScore3Lbl = new Label("Test score 3:");
+        grid.add(testScore3Lbl, 0, 5);
+
+        TextField testScore3TxtFld = new TextField();
+        grid.add(testScore3TxtFld, 1, 5);
+        
+        Label testScore4Lbl = new Label("Test score 4:");
+        grid.add(testScore4Lbl, 0, 6);
+
+        TextField testScore4TxtFld = new TextField();
+        grid.add(testScore4TxtFld, 1, 6);
+
+        Button signupBtn = new Button("Calculate");
+        HBox hbBtn = new HBox(10);
+        hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
+        hbBtn.getChildren().add(signupBtn);
+        grid.add(hbBtn, 1, 8);
+        
+        Label errorLbl = new Label("error");
+        errorLbl.setTextFill(Color.web("#FF0000"));
+        errorLbl.setVisible(false);
+        grid.add(errorLbl, 1, 10);
+         
+/**
+ * Set the student name pattern and initializes the test scores to zero 
+ */
+        
+
+        signupBtn.setOnAction(new EventHandler<ActionEvent>() {
+        	String studentNamePattern = "";
+        	String passWordPattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=~`!*_-|:;?/(){}<>])(?=\\S+$).{8,64}";
+        	String intPattern = "(?=.*[0-9])(?=\\S+$).{1,3}";
+        	
+        	String inputFirstName = "";
+        	String inputLastName = "";
+        	String [] inputTests = new String[Student.NUMBER_OF_TEST];
+        	int [] scores = new int [Student.NUMBER_OF_TEST];
+        	boolean allFieldsValidStatus = true;
+        	boolean [] testStatus = new boolean [Student.NUMBER_OF_TEST];
+        	
+            String inputTest1 = "";
+            String inputTest2 = "";
+            String inputTest3 = "";
+            String inputTest4 = "";
+            int testScore1 = 0;
+            int testScore2 = 0;
+            int testScore3 = 0;
+            int testScore4 = 0;
+                            
+            boolean firstNameStatus = false;
+            boolean lastNameStatus = false;
+
+                                
+            String errorText = "";
+
+/**
+ * validates the fields: first name, last name and the test score fields            
+ */
+            @Override
+            public void handle(ActionEvent e) {
+            	errorText = "";
+            	errorLbl.setVisible(false);
+            	
+ // Fields are not blank (Requirement 1)
+            	
+               	System.out.println("==========================================");
+            	firstNameStatus = validate(firstNameTxtFld);
+            	lastNameStatus = validate(lastNameTxtFld);
+            	
+            	testStatus[0] = validate(testScore1TxtFld); 
+            	testStatus[1] = validate(testScore2TxtFld); 
+            	testStatus[2] = validate(testScore3TxtFld); 
+            	testStatus[3] = validate(testScore4TxtFld);             	          	         	   
+                  	
+            	inputFirstName = firstNameTxtFld.getText();
+            	inputLastName =  lastNameTxtFld.getText();
+        		inputTests[0] = testScore1TxtFld.getText();
+        		inputTests[1] = testScore2TxtFld.getText();
+        		inputTests[2] = testScore3TxtFld.getText();
+        		inputTests[3] = testScore4TxtFld.getText();
+            		
+            	// ***************Testing for blank fields***********************
+        		
+        		allFieldsValidStatus = true;
+               		
+            	if (!firstNameStatus){
+            		errorText += Configuration.FIRST_NAME_ERROR + "\n";
+            		System.out.println("First name is blank!");
+            		allFieldsValidStatus = false;
+               	}
+            	
+            	if (!lastNameStatus){
+            		errorText += Configuration.LAST_NAME_ERROR + "\n";
+            		System.out.println("Last name is blank!");
+            		allFieldsValidStatus = false;
+               	}
+            	
+
+/**
+ *  ***************Test for blank and non valid scores ***********************
+ */
+           		for(int i=0; i< inputTests.length; i++) {
+           			if(testStatus[i]) {    //  test score fields not blank
+           				if (inputTests[i].matches(intPattern)){  // matches pattern (0-9) (3 digit or less)
+           					scores[i] = Integer.parseInt(inputTests[i]);
+           					if (scores[i] >= 0 &&  scores[i] <= 100) { //between 0 and 100
+           						System.out.println("Test score " + (i+1) + " is a valid test score.");
+           					} 
+           					else
+           					{
+           						System.out.println("Test score " + (i+1) + " is not an integer between 0 and 100.");
+           						errorText += Configuration.TEST_SCORE_ERROR + " (Test " + (1+i) + ")" + "\n";
+           						allFieldsValidStatus = false;
+           					}
+           				}
+           				else
+           				{
+           					System.out.println("Test score " + (i+1) + " is not an integer between 0 and 100.");
+       						errorText += Configuration.TEST_SCORE_ERROR + " (Test " + (1+i) + ")" + "\n";
+               				allFieldsValidStatus = false;
+           				}
+      				} 
+           			else
+           			{
+           				errorText += Configuration.TEST_SCORE_BLANK_ERROR + " (Test " + (1+i) + ")" + "\n";
+           				System.out.println("Test score " + (i+1) + " is blank!");
+           				allFieldsValidStatus = false;
+           			}  
+           		}
+  
+/**
+ *  If all fields are valid call setters for a student, calculate score and create message.
+ */
+           		if (allFieldsValidStatus) {
+           			Student student = new Student();
+           			student.setTestScores(scores);
+           			student.setFirstName(inputFirstName);
+            		student.setLastName(inputLastName);
+            		student.calcStudentAverage(scores);
+            		System.out.println(student.toString());
+            		errorText += student.getFirstName() + " " + student.getLastName() + 
+            				" has a weighted score of " + student.getStudentAverage() + " in this class.";
+            		System.out.println("error text " + errorText);
+           		}
+            	errorLbl.setText(errorText);
+            	errorLbl.setVisible(true);
+            	
+            }
+        });
+
+
+        Scene scene = new Scene(grid, 700, 800);
+        
+        //*******************************
+        scene.getStylesheets().add(getClass().getResource("JavaFX.css").toExternalForm());
+   //     scene.getStylesheets().add("JavaFX.css");
+        //*******************************
+        primaryStage.setScene(scene);
+        primaryStage.show();	
+	
+	}
+    
+ /**
+  * validate method is called to determine if field is blank.
+ */
+    
+    private boolean validate(TextField tf) {
+    	boolean pass = false;
+    	ObservableList<String> styleClass = tf.getStyleClass();
+    	if (tf.getText().trim().length() == 0) {
+    		if (!styleClass.contains("error")) {
+    			styleClass.add("error");
+    			}
+    	} else {
+    		// remove all occurrences
+    		styleClass.removeAll(Collections.singleton("error"));
+    		pass = true;
+    	}
+    	return pass;
+	}
+    
+    
+    
+}
+   
