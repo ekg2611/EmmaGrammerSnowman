@@ -1,0 +1,10 @@
+package StudentScoreCard;
+
+public class Configuration {
+	public static String FIRST_NAME_ERROR = "First name cannot be blank!";
+	public static String LAST_NAME_ERROR = "Last name cannot be blank!";
+	public static String TEST_SCORE_BLANK_ERROR = "Test score cannot be blank";
+	public static String TEST_SCORE_ERROR = "Test score must be an integer between 0 and 100!";
+	
+	
+}
