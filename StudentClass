@@ -1,0 +1,101 @@
+/**
+ * @author Emma Grammer
+ * email ekg2611@email.vccs.edu
+ * date 12/02/2015
+ */
+package StudentScoreCard;
+
+import java.util.Arrays;
+
+public class Student {
+
+	public static final int NUMBER_OF_TEST = 4;
+	private static final double[] weightOfScores = {.20, .35, .15, .30};
+	
+	private String firstName;
+	private String lastName;
+	private int [] testScores = new int [NUMBER_OF_TEST];
+	private double studentAverage;
+	
+	public Student (){
+		this.firstName = "";
+		this.lastName = "";
+	}
+/**
+ * 
+ * @param firstName the parameter is the first name
+ * @param testScores the parameter is the test score
+ * @param studentAverage the parameter is the student average of the test scores
+ */
+	public Student(String firstName, int[] testScores, double studentAverage) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.testScores = testScores;
+		this.studentAverage = studentAverage;
+	}
+
+		
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public int[] getTestScores() {
+		return testScores;
+	}
+
+	public void setTestScores(int[] testScores) {
+		this.testScores = testScores;
+	}
+
+	public double getStudentAverage() {
+		return studentAverage;
+	}
+
+	public void setStudentAverage(double studentAverage) {
+		this.studentAverage = studentAverage;
+	}
+	
+/**
+ * returns the user generated information
+ */
+	@Override
+	public String toString() {
+		return "Student [firstName=" + firstName + ", lastName=" + lastName + ", testScores="
+				+ Arrays.toString(testScores) + ", studentAverage=" + studentAverage + "]";
+	}
+
+//	public double calcStudentAverage(int[] testScores){
+//		double studentAverage = 0.0;
+//		for(int i=0; i< testScores.length; i++){
+//			studentAverage += testScores[i] * weightOfScores[i];
+//		}
+//		return studentAverage;		
+//	}
+
+/**
+ * This calculates the test scores to find the student average	
+ * @param testScores the parameter is the test scores
+ */
+	
+	public void calcStudentAverage(int [] testScores){
+		this.studentAverage = 0.0;
+		for(int i=0; i< testScores.length; i++){
+			this.studentAverage += testScores[i] * weightOfScores[i];
+		}
+	}
+	
+}
+	
